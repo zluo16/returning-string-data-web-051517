@@ -3,8 +3,8 @@
 ## Objectives
 
   * Return plain strings as HTTP responses
-  * Undertand that the internet is just returning Strings!
-  * Replace a Div with String returned
+  * Explain how the Internet is really just sending strings!
+  * Replace a DIV with a string fetched over HTTP
 
 ## Lesson
 
