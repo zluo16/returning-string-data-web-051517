@@ -6,7 +6,6 @@
   * Undertand that the internet is just returning Strings!
   * Replace a Div with String returned
 
-
 ## Lesson
 
 As developers, we do our best to hide it, but all of the Internet is
@@ -26,7 +25,7 @@ into something, we just see the string.
 
 So if the Internet is just strings, do we always need the markup?
 
-### Returning Raw Strings From Controller Actions
+### Returning Raw Strings from Controller Actions
 
 Included in this repo is a blog application. Run `rake db:seed` and then
 launch the Rails server and browse to `/posts`.
@@ -77,7 +76,7 @@ tag, so you can easily get an `id` to use to test this out.
 
 This route isn't useful at all to the HTML portion of the site, because it has no markup, so we have to consume it another way. That means we just wrote our first API endpoint!
 
-### Consuming A Simple API Endpoint With AJAX
+### Consuming a Simple API Endpoint with AJAX
 
 Okay, we have an API endpoint where we can get the rest of a post body.
 Now it's just a matter of providing a way for the user to request it,
@@ -97,6 +96,8 @@ pass along to our route.
 
 <button class="js-more" data-id="<%= post.id %>">More...</button>
 ```
+
+**Note:** We're using the [`truncate` helper](http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-truncate) here to only show a portion of the potentially long `description` string. By default, `truncate` will cut off everything after 30 characters.
 
 We need a way to attach a `click()` event listener to the button in
 JavaScript. Since there will be multiple buttons on the page that need
@@ -139,7 +140,7 @@ route using the `id` we stored in the `data-id` attribute on the button.
 So, if we reload the page and click "more" on a post, we should get an
 alert with the body of that post.
 
-### Replacing Text With The API Response
+### Replacing Text with the API Response
 
 The last thing we need to do is swap out that `alert(data)` call with
 actually putting the response into the body of our post.
@@ -208,3 +209,4 @@ without doing a page refresh? Certainly we wouldn't want to make a bunch
 of separate requests to endpoints like `/post/:id/body` and
 `/post/:id/title` and `/post/:id/author`, would we? There has to be a
 better way!
+
